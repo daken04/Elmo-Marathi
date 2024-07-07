@@ -1,0 +1,10 @@
+fasttext
+indicnlp
+matplotlib
+numpy
+pandas
+seaborn
+scikit-learn
+torch
+tqdm
+wandb
