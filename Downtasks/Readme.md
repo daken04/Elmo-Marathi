@@ -58,3 +58,32 @@ The `NERModel` class defines a neural network model for the NER task. The archit
 
 ## =====================================================
 
+# Marathi News Category Classification
+
+## Introduction
+The task is to predict the genre or topic of a given news article or news headline. The news article category datasets are created using IndicCorp for 9 languages. The categories are determined from URL components and include generic categories that are likely to be consistent across websites (e.g., entertainment, sports, business, lifestyle, technology, politics, crime).
+
+## Dataset
+The Marathi news category dataset includes:
+- **texts**: The news articles or headlines.
+- **labels**: The categories corresponding to each news article or headline.
+
+## Model Architecture
+
+### MarathiDatasetCreate Class
+The `MarathiDatasetCreate` class handles the dataset for the news category classification task. It uses a tokenizer and a FastText model to generate embeddings for the text data. The class initializes with lists of texts and labels, a FastText model for word embeddings, a dictionary mapping tokens to indices, and a language parameter. It also encodes the labels using `LabelEncoder`.
+
+### Collate Function
+The `collate_fn` function manages the batching of data for training or inference. It ensures that all sequences in the batch are padded to the same length, allowing for efficient batch processing by the model.
+
+### BiLSTMClassifier Class
+The `BiLSTMClassifier` class defines a neural network model for the classification task. The architecture includes:
+- An LSTM layer to process the text sequences and capture their sequential information.
+- The LSTM layer is bidirectional to capture both forward and backward dependencies in the text.
+- A fully connected (FC) layer to map the output of the LSTM layers to the number of categories.
+- The output of the LSTM layer at the last time step is passed through the FC layer to produce the final category scores.
+
+## =====================================================
+
+
+
